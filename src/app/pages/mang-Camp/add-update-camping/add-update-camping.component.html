@@ -1,0 +1,176 @@
+<div class="modal-header">
+  <h4 class="modal-title">{{tit}}</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form class="form" name="form" #f="ngForm" (ngSubmit)="this.mangArt(f)">
+
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group row">
+          <label class="col-sm-3 col-form-label">Title</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" id="Name" placeholder="" name="titre" [(ngModel)]="this.model.titre"
+              #titre="ngModel" required>
+          </div>
+        </div>
+
+        <div *ngIf="(titre.invalid && titre.touched)" class="alert alert-danger p-2" role="alert">
+          Title Requered
+        </div>
+      </div>
+
+      <div class="col-md-6" *ngIf="!this.add">
+        <div class="form-group row">
+          <label class="col-sm-3 col-form-label">Image2</label>
+          <div class="col-sm-9">
+            <input type="file" class="form-control-file" id="exampleFormControlFile1" [disabled]="true">
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-md-6" *ngIf="this.add">
+        <div class="form-group row">
+          <label class="col-sm-3 col-form-label">Image</label>
+          <div class="col-sm-9">
+            <input type="file" class="form-control-file" id="exampleFormControlFile1" (change)="fileChange($event)"
+              name="imageup" [(ngModel)]="this.model.imageup" #imageup="ngModel" required>
+          </div>
+        </div>
+        <div *ngIf="(imageup.invalid && imageup.touched)" class="alert alert-danger p-2" role="alert">
+          Image Requered
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group row">
+          <label class="col-sm-3 col-form-label">Description</label>
+          <textarea id="w3review" name="description" rows="3" cols="75" [(ngModel)]="this.model.description"
+            #description="ngModel" required>
+            </textarea>
+        </div>
+        <div *ngIf="(description.invalid && description.touched)" class="alert alert-danger p-2" role="alert">
+          Description Requered
+        </div>
+      </div>
+
+    </div>
+    <!--  -->
+
+
+
+
+    <!--  -->
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group row">
+          <label class="col-sm-3 col-form-label">Number of stars</label>
+          <div class="col-sm-9">
+            <input type="number" class="form-control" id="Name" placeholder="From 1 To 5" name="nbr_etoile"
+              [(ngModel)]="this.model.nbr_etoile" #nbr_etoile="ngModel" required>
+          </div>
+        </div>
+        <div *ngIf="(nbr_etoile.invalid && nbr_etoile.touched)" class="alert alert-danger p-2" role="alert">
+          Number of stars Requered
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group row">
+          <label class="col-sm-3 col-form-label">number of places</label>
+          <div class="col-sm-9">
+            <input type="number" class="form-control" id="mavance" placeholder="Min 1" name="nbr_place_dispo"
+              [(ngModel)]="this.model.nbr_place_dispo" #nbr_place_dispo="ngModel" required>
+          </div>
+        </div>
+        <div *ngIf="(nbr_place_dispo.invalid && nbr_place_dispo.touched)" class="alert alert-danger p-2" role="alert">
+          number of places Requered
+        </div>
+      </div>
+    </div>
+
+
+    <!--  -->
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group row">
+          <label class="col-sm-3 col-form-label">Start date </label>
+          <div class="col-sm-9">
+
+            <input type="date" class="form-control" name="date_debut" [(ngModel)]="this.model.date_debut"
+              #date_debut="ngModel" required>
+          </div>
+        </div>
+        <div *ngIf="(date_debut.invalid && date_debut.touched)" class="alert alert-danger p-2" role="alert">
+          Start date Requered
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group row">
+          <label class="col-sm-3 col-form-label">End date </label>
+          <div class="col-sm-9">
+
+            <input type="date" class="form-control" name="date_fin" [(ngModel)]="this.model.date_fin"
+              #date_fin="ngModel" required>
+          </div>
+        </div>
+        <div *ngIf="(date_fin.invalid && date_fin.touched)" class="alert alert-danger p-2" role="alert">
+          End date Requered
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group row">
+          <label class="col-sm-3 col-form-label">Price</label>
+          <div class="col-sm-9">
+            <input type="number" class="form-control" id="Name" placeholder=" DT" name="prix"
+              [(ngModel)]="this.model.prix" #prix="ngModel" required>
+          </div>
+        </div>
+        <div *ngIf="(prix.invalid && prix.touched)" class="alert alert-danger p-2" role="alert">
+          Price Requered
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group row">
+          <label class="col-sm-3 col-form-label">Location</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" id="Name" placeholder="" name="localisation"
+              [(ngModel)]="this.model.localisation" #localisation="ngModel" required>
+          </div>
+        </div>
+        <div *ngIf="(localisation.invalid && localisation.touched)" class="alert alert-danger p-2" role="alert">
+          location Requered
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group row">
+          <label class="col-sm-3 col-form-label">Condition</label>
+          <textarea id="w3review" name="condition" rows="3" cols="75" [(ngModel)]="this.model.condition"
+            #condition="ngModel" required>
+            </textarea>
+        </div>
+        <div *ngIf="(condition.invalid && condition.touched)" class="alert alert-danger p-2" role="alert">
+          Condition Requered
+        </div>
+      </div>
+
+    </div>
+
+    <div class="modal-footer">
+      <button *ngIf="this.add" type="submit" class="btn btn-primary" [disabled]="f.invalid">Ajouter</button>
+      <button *ngIf="!this.add" type="submit" class="btn btn-primary" [disabled]="f.invalid">Modifier</button>
+      <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+    </div>
+  </form>
+</div>

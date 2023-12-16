@@ -1,0 +1,56 @@
+<div class="modal-header">
+    <h4 class="modal-title">{{this.titel}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    
+      <img src="./../../../../assets/uplodeimgcamp/{{obj.image}}" width="50px" height="200px" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">KHYMA : </h5>
+        <p class="card-text">{{obj.description}}</p>
+        <div class="table-responsive">
+        <table class="table table-bordered">
+  <thead>
+    <th scope="col" style="text-align: left;">N° stars</th>
+    <th scope="col" style="text-align: left;">N° places</th>
+    <th scope="col" style="text-align: left;"> N° place reserve</th>
+    <th scope="col" style="text-align: left;">Price</th>
+    <th scope="col" style="text-align: left;">Start date</th>
+    <th scope="col" style="text-align: left;">End date	</th>
+    <th scope="col" style="text-align: left;">Location</th>
+    <th scope="col" style="text-align: left;">State</th>
+  </thead>
+  <tbody>
+<tr>
+<td scope="col" style="text-align: center;">{{obj.nbr_etoile}}</td>
+<td scope="col" style="text-align: center;">{{obj.nbr_place_dispo}}</td>
+<td scope="col" style="text-align: center;">{{obj.nbr_place_reserve}}</td>
+<td scope="col" style="text-align: center;">{{obj.prix+ " DT"}}</td>
+<td scope="col" style="text-align: center;">{{obj.date_debut}}</td>
+<td scope="col" style="text-align: center;">{{obj.date_fin}}</td>
+<td scope="col" style="text-align: center;">{{obj.localisation}}</td>
+<td scope="col" style="text-align: center;">
+    <span *ngIf="obj.etat=='1'" style="color:green">In progress</span>
+    <span *ngIf="obj.etat=='2'" style="color:red">Closed </span>
+</td>
+
+</tr>
+  </tbody>
+</table>
+</div>
+      
+    </div>
+ <!-- <table class="table" >
+        <thead>
+            
+
+          
+        </thead>
+      </table> -->
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Fermer</button>
+  </div>
+  

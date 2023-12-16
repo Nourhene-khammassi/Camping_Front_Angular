@@ -1,0 +1,36 @@
+<div class="modal-header">
+    <h4 class="modal-title">Details</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body" >
+    <div class="artigo_nome">
+     <b>description :</b> <br>
+        {{this.obj.description_reclamation}}
+        <br>
+        <b>state : </b><br>
+        <ng-container >
+          <span *ngIf="obj.etat==0" style="color: yellow">In progress</span>
+          <span *ngIf="obj.etat ==1"style="color:  green" >Accepted</span>
+          <span *ngIf="obj.etat ==2"style="color:  red">Refuse</span>
+ 
+        </ng-container>
+
+        </div>
+      <!-- <ng-container>
+
+        <div *ngIf="this.obj.rep == null" class="form-group">
+          <label for="exampleFormControlTextarea1"><b>Explanation :</b></label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"  name="explanation"  [(ngModel)]="this.model.description"
+          #explanation="ngModel" required></textarea>
+        </div>
+      </ng-container> -->
+
+  </div>
+  <div class="modal-footer">
+    <button *ngIf="this.type_u =='admin' && this.obj.rep == null" type="button"  class="btn btn-danger" (click)=" add_rep(2)">Danger</button>
+    <button *ngIf="this.type_u =='admin' && this.obj.rep == null" type="button" class="btn btn-success" (click)=" add_rep(1)">Success</button>
+    <button *ngIf="this.type_u !='admin' || this.obj.rep != null" type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Fermer</button>
+  </div>
+  
